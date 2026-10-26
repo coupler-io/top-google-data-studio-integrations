@@ -1,27 +1,27 @@
 ---
-title: Connect Microsoft Ads to Data Studio with Coupler.io
-slug: connect-microsoft-ads-to-looker-studio
-canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-looker-studio.md
+title: Connect Microsoft Ads to Google Data Studio with Coupler.io
+slug: connect-microsoft-ads-to-google-data-studio
+canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-google-data-studio.md
 source: Microsoft Ads (Bing Ads)
-destination: Data Studio
-meta_title: Connect Microsoft Ads to Data Studio with Coupler.io
-meta_description: Send Microsoft Ads campaign, keyword, search query, share of voice, and budget reports to Data Studio on a schedule. Bing dashboards that stay current.
+destination: Google Data Studio
+meta_title: Connect Microsoft Ads to Google Data Studio with Coupler.io
+meta_description: Send Microsoft Ads campaign, keyword, search query, share of voice, and budget reports to Google Data Studio on a schedule. Bing dashboards that stay current.
 ---
 
-![Microsoft Ads](https://static.coupler.io/importers/microsoft.svg) → ![Data Studio](https://static.coupler.io/importers/data_studio.svg)
+![Microsoft Ads](https://static.coupler.io/importers/microsoft.svg) → ![Google Data Studio](https://static.coupler.io/importers/data_studio.svg)
 
-# Connect Microsoft Ads to Data Studio with Coupler.io
+# Connect Microsoft Ads to Google Data Studio (Looker Studio) with Coupler.io
 
-Google ships no native connector from Microsoft Advertising into Data Studio (formerly Looker Studio), so Bing numbers usually reach a dashboard as a downloaded CSV that is stale before the meeting starts. The reports inside Microsoft Advertising itself are fine for one account at a time and awkward for anything else. Coupler.io pulls any of 44 Microsoft Ads report types straight into a Data Studio data source, across as many ad accounts as you like, and keeps it refreshed without anyone opening the Microsoft UI.
+Google ships no native connector from Microsoft Advertising into Google Data Studio, so Bing numbers usually reach a dashboard as a downloaded CSV that is stale before the meeting starts. The reports inside Microsoft Advertising itself are fine for one account at a time and awkward for anything else. Coupler.io pulls any of 44 Microsoft Ads report types straight into a Google Data Studio data source, across as many ad accounts as you like, and keeps it refreshed without anyone opening the Microsoft UI.
 
-## How to export Microsoft Ads data to Data Studio
+## How to export Microsoft Ads data to Google Data Studio
 
 The wizard covers campaign, ad group, ad, and keyword performance, search queries, ad extensions, Dynamic Search Ads, shopping and hotel campaigns, audience targeting, budgets, change history, and fully custom reports. Here is each screen in order.
 
 ### Step 1. Basic settings
 
 - **Ad accounts** — choose one Microsoft Advertising account or a whole list of them. Picking several produces a single combined data source, which is exactly what an agency rollup or a multi-brand view needs.
-- **Report type** — decides what the rows in Data Studio represent: campaigns, keywords, search terms, products, locations, and so on. Every option is described further down this page. Pick **Custom report** when none of the prebuilt shapes fit.
+- **Report type** — decides what the rows in Google Data Studio represent: campaigns, keywords, search terms, products, locations, and so on. Every option is described further down this page. Pick **Custom report** when none of the prebuilt shapes fit.
 
 ### Step 2. Report period
 
@@ -53,34 +53,34 @@ Shown only for **Custom report**.
 - **Aggregate** — collapse daily keyword rows into monthly campaign totals when the dashboard needs the summary rather than the detail.
 - **Custom SQL** — write a query against the prepared data for anything the other transformations do not cover.
 
-### Step 7. Data Studio destination
+### Step 7. Google Data Studio destination
 
 - **Report / data source URL** — optional. Point the flow at a Microsoft Ads report you have already designed by pasting its `https://datastudio.google.com/reporting/...` address, whether that's the report or the data source behind it. Coupler.io then opens that exact report for you.
 
-Select Data Studio as the destination and Coupler.io creates the data source through its own Data Studio connector. You sign in to Data Studio and to Coupler.io once, and it must be with the **same Google account**: two different accounts is the most frequent reason a setup stalls. Field types are read from the data itself, so the date column works with date range controls straight away and Spend, Clicks, and CTR land as numbers. Run the flow successfully once before you start building charts; that first run is also what unlocks scheduling.
+Select Google Data Studio as the destination and Coupler.io creates the data source through its own Google Data Studio connector. You sign in to Google Data Studio and to Coupler.io once, and it must be with the **same Google account**: two different accounts is the most frequent reason a setup stalls. Field types are read from the data itself, so the date column works with date range controls straight away and Spend, Clicks, and CTR land as numbers. Run the flow successfully once before you start building charts; that first run is also what unlocks scheduling.
 
 ### Step 8. Schedule
 
-Choose how often the flow refreshes: every 15 minutes at the fastest, or hourly, daily, weekly, or monthly. Each run either replaces the previous data, which is what a performance dashboard normally wants, or appends to it so you build a running history. Bear in mind that Data Studio keeps its own cache and by default refreshes it every 12 hours; if you need this morning's spend now, open the report menu and click **Refresh data**.
+Choose how often the flow refreshes: every 15 minutes at the fastest, or hourly, daily, weekly, or monthly. Each run either replaces the previous data, which is what a performance dashboard normally wants, or appends to it so you build a running history. Bear in mind that Google Data Studio keeps its own cache and by default refreshes it every 12 hours; if you need this morning's spend now, open the report menu and click **Refresh data**.
 
 ### Bonus: or just ask the AI Agent to build it for you
 
 Skip the form entirely if you prefer. Open the Coupler.io AI Agent in the right sidebar of the app and describe the result:
 
-> *"Build a daily Microsoft Ads keyword performance report for the last 90 days with impressions, clicks, spend, conversions, and quality columns, for all my ad accounts, and send it to Data Studio so I can chart cost per conversion by keyword."*
+> *"Build a daily Microsoft Ads keyword performance report for the last 90 days with impressions, clicks, spend, conversions, and quality columns, for all my ad accounts, and send it to Google Data Studio so I can chart cost per conversion by keyword."*
 
 The Agent chooses the report type, period, split, and dimensions, and asks only when your request leaves a real choice open. A few things remain yours:
 
 1. **Connect Microsoft Ads** — the Microsoft sign-in is always done by you.
 2. **Pick the ad accounts** — you control which accounts are included.
-3. **Authorize Data Studio** — grant the connector access using the same Google account you use for Data Studio.
-4. **Point it at a report** — paste a Data Studio report URL, or let Coupler.io create a new data source, so you know exactly where the data lands.
+3. **Authorize Google Data Studio** — grant the connector access using the same Google account you use for Google Data Studio.
+4. **Point it at a report** — paste a Google Data Studio report URL, or let Coupler.io create a new data source, so you know exactly where the data lands.
 
-After the first run, open Data Studio and build the charts on top of the new data source.
+After the first run, open Google Data Studio and build the charts on top of the new data source.
 
-## What data can you export from Microsoft Ads to Data Studio with Coupler.io?
+## What data can you export from Microsoft Ads to Google Data Studio with Coupler.io?
 
-There are 44 report types. Each flow carries one of them, so a dashboard that needs keyword detail plus budget pacing uses two flows. Coupler.io's **Join** and **Append** combine those reports before Data Studio ever sees them, giving you one tidy data source; you can still keep them separate and blend them inside the report if you prefer.
+There are 44 report types. Each flow carries one of them, so a dashboard that needs keyword detail plus budget pacing uses two flows. Coupler.io's **Join** and **Append** combine those reports before Google Data Studio ever sees them, giving you one tidy data source; you can still keep them separate and blend them inside the report if you prefer.
 
 - **Campaign performance report** — spend, clicks, conversions, and ROAS per campaign, the backbone of most Bing dashboards.
 - **Keyword performance report** — how each bid keyword performs, with match type and quality signals, so you can see which terms carry their cost.
@@ -127,33 +127,33 @@ There are 44 report types. Each flow carries one of them, so a dashboard that ne
 - **User location performance report** — where the people who saw your ads were physically located.
 - **Custom report** — build your own combination of metrics and dimensions when no preset shape fits.
 
-## Why export Microsoft Ads to Data Studio — real life cases
+## Why export Microsoft Ads to Google Data Studio — real life cases
 
 Bing traffic is usually a smaller line on the media plan, which is exactly why it gets neglected in reporting. These are the dashboards that fix that.
 
 - **Weekly paid search review with Bing finally included**
 
-  Most search reviews open a Google Ads dashboard and mention Microsoft only verbally. Feed the Campaign performance report into Data Studio and add a page with Spend, Conversions, and Return on ad spend scorecards plus a week-over-week line chart. The marketing lead runs the Monday review from one shared link instead of a screenshot pasted into slides.
+  Most search reviews open a Google Ads dashboard and mention Microsoft only verbally. Feed the Campaign performance report into Google Data Studio and add a page with Spend, Conversions, and Return on ad spend scorecards plus a week-over-week line chart. The marketing lead runs the Monday review from one shared link instead of a screenshot pasted into slides.
 
 - **Agency client reports that cover every engine**
 
-  Clients who run both Google and Microsoft want one PDF. Append the two sources in Coupler.io, add an engine filter control, and schedule Data Studio's email delivery for every Monday at 8am. The account manager stops rebuilding the same deck each week and the client sees Bing results in the same layout as everything else.
+  Clients who run both Google and Microsoft want one PDF. Append the two sources in Coupler.io, add an engine filter control, and schedule Google Data Studio's email delivery for every Monday at 8am. The account manager stops rebuilding the same deck each week and the client sees Bing results in the same layout as everything else.
 
 - **Budget pacing board for finance**
 
-  The Budget summary report gives daily spend against each campaign budget. A Data Studio bullet chart per campaign, plus a month-to-date scorecard, tells the finance team in seconds whether Bing will land on target. It replaces the end-of-month surprise and the spreadsheet someone used to update every Friday.
+  The Budget summary report gives daily spend against each campaign budget. A Google Data Studio bullet chart per campaign, plus a month-to-date scorecard, tells the finance team in seconds whether Bing will land on target. It replaces the end-of-month surprise and the spreadsheet someone used to update every Friday.
 
 - **Search term mining dashboard for PPC specialists**
 
-  Search query performance report data in a Data Studio table, sorted by Spend and filtered to rows with zero Conversions, is a ready-made list of negative keyword candidates. Add a Negative keyword conflict report page next to it so the specialist also sees which existing negatives are blocking good traffic. Weekly cleanup takes minutes instead of an afternoon in the Microsoft UI.
+  Search query performance report data in a Google Data Studio table, sorted by Spend and filtered to rows with zero Conversions, is a ready-made list of negative keyword candidates. Add a Negative keyword conflict report page next to it so the specialist also sees which existing negatives are blocking good traffic. Weekly cleanup takes minutes instead of an afternoon in the Microsoft UI.
 
 - **Competitive visibility tracker**
 
-  Campaign performance report with share performance statistics carries Impression share percent and the share lost to budget and rank. Chart those three lines over time in Data Studio and the conversation with leadership changes from "Bing is small" to "we are losing 40% of eligible impressions to budget". That is a budget request with evidence attached.
+  Campaign performance report with share performance statistics carries Impression share percent and the share lost to budget and rank. Chart those three lines over time in Google Data Studio and the conversation with leadership changes from "Bing is small" to "we are losing 40% of eligible impressions to budget". That is a budget request with evidence attached.
 
 - **Shopping campaign product dashboard for ecommerce**
 
-  The Product dimension performance report shows revenue and cost by brand, category, and product attributes. A Data Studio treemap of Revenue by category and a table of Return on ad spend by brand let the merchandising team decide which lines to push. A date range control lets them compare the holiday season with an ordinary month in two clicks.
+  The Product dimension performance report shows revenue and cost by brand, category, and product attributes. A Google Data Studio treemap of Revenue by category and a table of Return on ad spend by brand let the merchandising team decide which lines to push. A date range control lets them compare the holiday season with an ordinary month in two clicks.
 
 - **B2B audience report using professional demographics**
 
@@ -163,23 +163,23 @@ Bing traffic is usually a smaller line on the media plan, which is exactly why i
 
   When CPC jumps, the first question is what changed. Put the Search campaign change history report on a page next to daily Campaign performance report charts, with a shared campaign filter, and the cause is usually visible on the same date. Agencies use this during handovers and quarterly audits to show clients exactly what was adjusted and why.
 
-## Other Data Studio integrations
+## Other Google Data Studio integrations
 
-Every other source you can land in Data Studio with the same no-code setup:
+Every other source you can land in Google Data Studio with the same no-code setup:
 
-- [Connect Facebook Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-looker-studio.md)
-- [Connect Facebook Page Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-looker-studio.md)
-- [Connect Google Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-looker-studio.md)
-- [Connect Google Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-looker-studio.md)
-- [Connect Google Search Console to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-looker-studio.md)
-- [Connect Instagram Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-looker-studio.md)
-- [Connect Instagram Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-looker-studio.md)
-- [Connect LinkedIn Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-looker-studio.md)
-- [Connect LinkedIn Public Data to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-looker-studio.md)
-- [Connect QuickBooks to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-looker-studio.md)
-- [Connect Shopify to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-looker-studio.md)
-- [Connect TikTok Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-looker-studio.md)
-- [Connect TikTok Organic to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-looker-studio.md)
-- [Connect WooCommerce to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-looker-studio.md)
-- [Connect Xero to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-looker-studio.md)
-- [Connect YouTube Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-looker-studio.md)
+- [Connect Facebook Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-google-data-studio.md)
+- [Connect Facebook Page Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-google-data-studio.md)
+- [Connect Google Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-google-data-studio.md)
+- [Connect Google Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-google-data-studio.md)
+- [Connect Google Search Console to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-google-data-studio.md)
+- [Connect Instagram Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-google-data-studio.md)
+- [Connect Instagram Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-google-data-studio.md)
+- [Connect LinkedIn Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-google-data-studio.md)
+- [Connect LinkedIn Public Data to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-google-data-studio.md)
+- [Connect QuickBooks to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-google-data-studio.md)
+- [Connect Shopify to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-google-data-studio.md)
+- [Connect TikTok Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-google-data-studio.md)
+- [Connect TikTok Organic to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-google-data-studio.md)
+- [Connect WooCommerce to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-google-data-studio.md)
+- [Connect Xero to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-google-data-studio.md)
+- [Connect YouTube Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-google-data-studio.md)

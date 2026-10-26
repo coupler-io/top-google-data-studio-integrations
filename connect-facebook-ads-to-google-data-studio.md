@@ -1,27 +1,27 @@
 ---
-title: Connect Facebook Ads to Data Studio with Coupler.io
-slug: connect-facebook-ads-to-looker-studio
-canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-looker-studio.md
+title: Connect Facebook Ads to Google Data Studio with Coupler.io
+slug: connect-facebook-ads-to-google-data-studio
+canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-google-data-studio.md
 source: Facebook Ads (Meta Ads)
-destination: Data Studio
-meta_title: Connect Facebook Ads to Data Studio with Coupler.io
-meta_description: Send Facebook Ads insights, ad creatives, sponsored leads, activities, and Business invoices to Data Studio on autopilot for dashboards that stay current.
+destination: Google Data Studio
+meta_title: Connect Facebook Ads to Google Data Studio with Coupler.io
+meta_description: Send Facebook Ads insights, ad creatives, sponsored leads, activities, and Business invoices to Google Data Studio on autopilot for dashboards that stay current.
 ---
 
-![Facebook Ads](https://static.coupler.io/importers/facebook.svg) → ![Data Studio](https://static.coupler.io/importers/data_studio.svg)
+![Facebook Ads](https://static.coupler.io/importers/facebook.svg) → ![Google Data Studio](https://static.coupler.io/importers/data_studio.svg)
 
-# Connect Facebook Ads to Data Studio with Coupler.io
+# Connect Facebook Ads to Google Data Studio (Looker Studio) with Coupler.io
 
-Google never shipped a native Meta connector for Data Studio (formerly Looker Studio), so most teams end up downloading Ads Manager exports, pasting them into a sheet, and hoping nobody opens the dashboard before Monday's refresh. Coupler.io removes that loop. It pulls Facebook Ads data straight from Meta, tidies it up on the way, and hands Data Studio a ready-made data source that refreshes itself — performance, structure, leads, change history, and invoices included.
+Google never shipped a native Meta connector for Google Data Studio, so most teams end up downloading Ads Manager exports, pasting them into a sheet, and hoping nobody opens the dashboard before Monday's refresh. Coupler.io removes that loop. It pulls Facebook Ads data straight from Meta, tidies it up on the way, and hands Google Data Studio a ready-made data source that refreshes itself — performance, structure, leads, change history, and invoices included.
 
-## How to export Facebook Ads data to Data Studio
+## How to export Facebook Ads data to Google Data Studio
 
 The wizard below covers ad performance insights, the campaign, ad set, ad, and creative structure behind it, lead form submissions, the account's activity log, and Meta billing. Sign in with your Meta profile, then work through the screens in order — fields that don't apply to the category you picked simply stay hidden.
 
 ### Step 1. Basic settings
 
 - **Report type** — decides what the flow brings back. Choose one of the nine data categories described further down; every later screen reshapes itself to match.
-- **Ad accounts** — select one or many. When you pick several, rows from each account land in the same data source, so one Data Studio report can cover a whole portfolio. Not used for invoices or leads.
+- **Ad accounts** — select one or many. When you pick several, rows from each account land in the same data source, so one Google Data Studio report can cover a whole portfolio. Not used for invoices or leads.
 - **Pages** — shown for **List of Sponsored Leads** only. Choose the Facebook Pages whose lead forms you want to read.
 - **Businesses** — shown for **List of Business invoices** only. Pick the Business Manager accounts that receive the bills.
 
@@ -62,36 +62,36 @@ These four fields appear only for **List of Business invoices**.
 - **Aggregate** — collapse daily rows into weekly or monthly totals per campaign before they hit the dashboard.
 - **Custom SQL** — write a query over the prepared data for anything the other options don't cover.
 
-### Step 7. Data Studio destination
+### Step 7. Google Data Studio destination
 
-Pick Data Studio on the destination screen; Coupler.io then builds the data source for you using its own Data Studio connector. You authorize two things, Coupler.io and the Data Studio connector, and both must use the **same Google account** — a personal Gmail for one and a work login for the other is the most common reason a setup stalls.
+Pick Google Data Studio on the destination screen; Coupler.io then builds the data source for you using its own Google Data Studio connector. You authorize two things, Coupler.io and the Google Data Studio connector, and both must use the **same Google account** — a personal Gmail for one and a work login for the other is the most common reason a setup stalls.
 
-- **Report / data source URL** — optional. If you already have a Data Studio report or data source (a link starting with `https://datastudio.google.com/reporting/...`), paste it here so the flow is tied to it and opens it straight from Coupler.io. Leave it empty to start fresh.
+- **Report / data source URL** — optional. If you already have a Google Data Studio report or data source (a link starting with `https://datastudio.google.com/reporting/...`), paste it here so the flow is tied to it and opens it straight from Coupler.io. Leave it empty to start fresh.
 
-Coupler.io works out field types by looking at the values: Amount spend arrives as a number and the date column as a real date, so the report's date range control filters correctly from the first chart. Run the flow once successfully before you start building in Data Studio — the Schedule step stays locked until that run succeeds.
+Coupler.io works out field types by looking at the values: Amount spend arrives as a number and the date column as a real date, so the report's date range control filters correctly from the first chart. Run the flow once successfully before you start building in Google Data Studio — the Schedule step stays locked until that run succeeds.
 
 ### Step 8. Schedule
 
-Set the refresh to every 15 minutes, hourly, daily, weekly, or monthly. On every run Coupler.io can swap in a fresh snapshot, which suits most performance dashboards, or add the new rows beneath the old ones to keep a running history. Bear in mind Data Studio holds its own cache and refreshes it about every 12 hours by default; when a client is on the call and you need this morning's spend, hit **Refresh data** in the report menu.
+Set the refresh to every 15 minutes, hourly, daily, weekly, or monthly. On every run Coupler.io can swap in a fresh snapshot, which suits most performance dashboards, or add the new rows beneath the old ones to keep a running history. Bear in mind Google Data Studio holds its own cache and refreshes it about every 12 hours by default; when a client is on the call and you need this morning's spend, hit **Refresh data** in the report menu.
 
 ### Bonus: or just ask the AI Agent to build it for you
 
 Prefer to describe the report instead of clicking through it? Open the Coupler.io AI Agent in the right sidebar of the app and type something like:
 
-> *"Set up a flow from Facebook Ads to Data Studio with daily Amount spend, Impressions, Clicks, CTR, CPC, and Purchase ROAS for the last 90 days, broken down by Publisher platform, so I can build a weekly client dashboard."*
+> *"Set up a flow from Facebook Ads to Google Data Studio with daily Amount spend, Impressions, Clicks, CTR, CPC, and Purchase ROAS for the last 90 days, broken down by Publisher platform, so I can build a weekly client dashboard."*
 
-The Agent chooses the report type, the columns, the breakdown, and the date window, then prepares the Data Studio destination. A few steps stay in your hands:
+The Agent chooses the report type, the columns, the breakdown, and the date window, then prepares the Google Data Studio destination. A few steps stay in your hands:
 
 1. **Connect Facebook Ads** — the Meta sign-in is yours to do.
 2. **Choose the ad accounts** — or, for leads, the Pages and lead generation forms, which you pick in the wizard.
-3. **Authorize the Data Studio connector** — signed in to Google exactly as you are in Coupler.io.
+3. **Authorize the Google Data Studio connector** — signed in to Google exactly as you are in Coupler.io.
 4. **Decide where the data lands** — link a report or data source you already use, or have a new data source generated.
 
-With the first run done, head to Data Studio and arrange the charts.
+With the first run done, head to Google Data Studio and arrange the charts.
 
-## What data can you export from Facebook Ads to Data Studio with Coupler.io?
+## What data can you export from Facebook Ads to Google Data Studio with Coupler.io?
 
-There are nine data categories, and each flow carries one of them. That's rarely a limitation: Coupler.io's **Join** and **Append** can merge categories inside the flow, for example ads with their creatives or insights with campaign budgets, so a single merged data source is what reaches Data Studio. Prefer them separate? Connect every flow to the report on its own and use Data Studio blending as the fallback.
+There are nine data categories, and each flow carries one of them. That's rarely a limitation: Coupler.io's **Join** and **Append** can merge categories inside the flow, for example ads with their creatives or insights with campaign budgets, so a single merged data source is what reaches Google Data Studio. Prefer them separate? Connect every flow to the report on its own and use Google Data Studio blending as the fallback.
 
 - **Reports and Insights** — the performance layer: spend, reach, impressions, clicks, CPC, CPM, CTR, ROAS, video completion, and every conversion event you track, split by day, week, or month and by any breakdown. Most Facebook dashboards start here.
 - **List of Sponsored Leads** — submissions from your Meta lead forms with the answers people gave, the time they submitted, and the ad and campaign behind each one.
@@ -103,7 +103,7 @@ There are nine data categories, and each flow carries one of them. That's rarely
 - **List of Activities** — the account's audit trail: who changed a budget, paused an ad, or edited an audience, and when.
 - **List of Business invoices** — monthly invoices for each bill-to entity on your Business, with billed amounts and the campaigns included.
 
-## Why export Facebook Ads to Data Studio — real life cases
+## Why export Facebook Ads to Google Data Studio — real life cases
 
 Here's how marketing, agency, and finance teams put these Meta data sources to work once they live in a shared report.
 
@@ -113,7 +113,7 @@ Here's how marketing, agency, and finance teams put these Meta data sources to w
 
 - **White-labeled client reports for agencies**
 
-  Agencies select every client ad account in one flow, then add an account-name filter control so each client sees only their own figures through a shared view link. Data Studio's scheduled email delivery sends a PDF every Monday, which retires the manual Friday export routine.
+  Agencies select every client ad account in one flow, then add an account-name filter control so each client sees only their own figures through a shared view link. Google Data Studio's scheduled email delivery sends a PDF every Monday, which retires the manual Friday export routine.
 
 - **Placement and device breakdown for budget shifts**
 
@@ -137,25 +137,25 @@ Here's how marketing, agency, and finance teams put these Meta data sources to w
 
 - **Cross-channel spend overview for leadership**
 
-  Coupler.io's Append combines Facebook Ads insights with Google Ads and LinkedIn Ads rows under matching column names, so one Data Studio pie chart and one trend line cover total paid spend. Leadership compares channels side by side, and quarterly budget talks start from the same numbers.
+  Coupler.io's Append combines Facebook Ads insights with Google Ads and LinkedIn Ads rows under matching column names, so one Google Data Studio pie chart and one trend line cover total paid spend. Leadership compares channels side by side, and quarterly budget talks start from the same numbers.
 
-## Other Data Studio integrations
+## Other Google Data Studio integrations
 
-Every other source you can land in Data Studio with the same no-code setup:
+Every other source you can land in Google Data Studio with the same no-code setup:
 
-- [Connect Facebook Page Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-looker-studio.md)
-- [Connect Google Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-looker-studio.md)
-- [Connect Google Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-looker-studio.md)
-- [Connect Google Search Console to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-looker-studio.md)
-- [Connect Instagram Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-looker-studio.md)
-- [Connect Instagram Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-looker-studio.md)
-- [Connect LinkedIn Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-looker-studio.md)
-- [Connect LinkedIn Public Data to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-looker-studio.md)
-- [Connect Microsoft Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-looker-studio.md)
-- [Connect QuickBooks to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-looker-studio.md)
-- [Connect Shopify to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-looker-studio.md)
-- [Connect TikTok Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-looker-studio.md)
-- [Connect TikTok Organic to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-looker-studio.md)
-- [Connect WooCommerce to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-looker-studio.md)
-- [Connect Xero to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-looker-studio.md)
-- [Connect YouTube Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-looker-studio.md)
+- [Connect Facebook Page Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-google-data-studio.md)
+- [Connect Google Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-google-data-studio.md)
+- [Connect Google Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-google-data-studio.md)
+- [Connect Google Search Console to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-google-data-studio.md)
+- [Connect Instagram Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-google-data-studio.md)
+- [Connect Instagram Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-google-data-studio.md)
+- [Connect LinkedIn Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-google-data-studio.md)
+- [Connect LinkedIn Public Data to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-google-data-studio.md)
+- [Connect Microsoft Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-google-data-studio.md)
+- [Connect QuickBooks to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-google-data-studio.md)
+- [Connect Shopify to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-google-data-studio.md)
+- [Connect TikTok Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-google-data-studio.md)
+- [Connect TikTok Organic to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-google-data-studio.md)
+- [Connect WooCommerce to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-google-data-studio.md)
+- [Connect Xero to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-google-data-studio.md)
+- [Connect YouTube Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-google-data-studio.md)

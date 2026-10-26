@@ -1,20 +1,20 @@
 ---
-title: Connect Xero to Data Studio with Coupler.io
-slug: connect-xero-to-looker-studio
-canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-looker-studio.md
+title: Connect Xero to Google Data Studio with Coupler.io
+slug: connect-xero-to-google-data-studio
+canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-google-data-studio.md
 source: "Xero, Xero Reports"
-destination: Data Studio
-meta_title: Connect Xero to Data Studio with Coupler.io
-meta_description: Bring Xero invoices, payments, journals, payroll, Profit And Loss and aged receivables into Data Studio on a schedule for live finance dashboards.
+destination: Google Data Studio
+meta_title: Connect Xero to Google Data Studio with Coupler.io
+meta_description: Bring Xero invoices, payments, journals, payroll, Profit And Loss and aged receivables into Google Data Studio on a schedule for live finance dashboards.
 ---
 
-![Xero](https://static.coupler.io/importers/xero.svg) → ![Data Studio](https://static.coupler.io/importers/data_studio.svg)
+![Xero](https://static.coupler.io/importers/xero.svg) → ![Google Data Studio](https://static.coupler.io/importers/data_studio.svg)
 
-# Connect Xero to Data Studio with Coupler.io
+# Connect Xero to Google Data Studio (Looker Studio) with Coupler.io
 
-Xero's built-in reports are tidy, but they live inside Xero: one organisation at a time, a fixed layout, and an export button when someone needs a chart. Google does not ship a Xero connector for Data Studio (formerly Looker Studio), which leaves most teams pasting CSV files into a sheet before every board meeting. Coupler.io reads Xero for you and keeps a Data Studio data source up to date, whether you want the records underneath (invoices, payments, journals, payroll, project time) from the Xero source or the finished statements (Profit And Loss, Balance Sheet, aged receivables) from the Xero Reports source.
+Xero's built-in reports are tidy, but they live inside Xero: one organisation at a time, a fixed layout, and an export button when someone needs a chart. Google does not ship a Xero connector for Google Data Studio, which leaves most teams pasting CSV files into a sheet before every board meeting. Coupler.io reads Xero for you and keeps a Google Data Studio data source up to date, whether you want the records underneath (invoices, payments, journals, payroll, project time) from the Xero source or the finished statements (Profit And Loss, Balance Sheet, aged receivables) from the Xero Reports source.
 
-## How to export Xero data to Data Studio
+## How to export Xero data to Google Data Studio
 
 There are two Coupler.io sources for Xero, and both use the same Xero authorization. **Xero** delivers records, one data entity per flow, across accounting, payroll, and projects. **Xero Reports** delivers Xero's prepared reports. The steps below walk through the Xero source and call out what changes when you choose Xero Reports.
 
@@ -28,7 +28,7 @@ There are two Coupler.io sources for Xero, and both use the same Xero authorizat
 In Xero Reports, **Basic settings** contains **Xero tenant** plus:
 
 - **Report type** — here it means the report itself, such as Profit And Loss, Balance Sheet, or Aged Payables By Contact.
-- **Report structure** — for Balance Sheet, Budget Summary, Profit And Loss, and Executive Summary. **Xero-style format** keeps dates as column headers, the way Xero shows them; **Date-by-row format** puts dates in one column, which is the shape Data Studio date range controls and time series work with.
+- **Report structure** — for Balance Sheet, Budget Summary, Profit And Loss, and Executive Summary. **Xero-style format** keeps dates as column headers, the way Xero shows them; **Date-by-row format** puts dates in one column, which is the shape Google Data Studio date range controls and time series work with.
 
 Xero Reports also has two short steps that apply to specific reports: **Contact**, with **Contact ID** for Aged Payables By Contact and Aged Receivables By Contact (each flow covers one contact), and **Bank account**, with **Bank Account ID** for Bank Statement.
 
@@ -71,39 +71,39 @@ Xero Reports replaces this with a **Parameters** step:
 - **Column management** — hide unused Xero fields, rename them into plain labels, reorder them, and set types where you need to.
 - **Join** — connect Xero data on a shared key: Invoices to Contacts by contact, or Time by projects to Projects by project ID.
 - **Append** — stack the same entity or report from several Xero organisations into one dataset, with a column showing which one each row came from.
-- **Aggregate** — total line items or journal lines by month, account, or tracking category before the data reaches Data Studio.
+- **Aggregate** — total line items or journal lines by month, account, or tracking category before the data reaches Google Data Studio.
 - **Custom SQL** — write your own query when you need logic the other transformations do not offer.
 
-### Step 5. Data Studio destination
+### Step 5. Google Data Studio destination
 
-Pick Data Studio as the destination. Coupler.io builds the data source through its own Data Studio connector, which you authorize once. Sign in to Data Studio and Coupler.io with the same Google account; when the two accounts differ, the connector cannot find the flow, and that mismatch causes most failed first setups.
+Pick Google Data Studio as the destination. Coupler.io builds the data source through its own Google Data Studio connector, which you authorize once. Sign in to Google Data Studio and Coupler.io with the same Google account; when the two accounts differ, the connector cannot find the flow, and that mismatch causes most failed first setups.
 
 - **Report / data source URL** — optional. Finance pack already built? Link it by pasting the report or data source address (`https://datastudio.google.com/reporting/...`). The flow then belongs to that report, and opening it from Coupler.io lands you on it rather than on a blank one.
 
-You do not set up fields yourself. Coupler.io reads the types from the Xero data, so invoice and due dates are real dates that respond to date range controls, and totals and amounts due are numbers you can sum or average. The first successful run has to happen before you start building the report and before a schedule can be turned on. One Data Studio report can take several Xero flows as separate data sources, for example invoices on one page and Profit And Loss on another.
+You do not set up fields yourself. Coupler.io reads the types from the Xero data, so invoice and due dates are real dates that respond to date range controls, and totals and amounts due are numbers you can sum or average. The first successful run has to happen before you start building the report and before a schedule can be turned on. One Google Data Studio report can take several Xero flows as separate data sources, for example invoices on one page and Profit And Loss on another.
 
 ### Step 6. Schedule
 
-Choose a refresh rhythm: as frequently as every 15 minutes, or hourly, daily, weekly, or monthly. Each run can replace the previous data, which is right for nearly every dashboard because it shows the current state of the books, or append to it, which builds a log over time, such as a monthly snapshot of Aged Receivables By Contact. Keep in mind that Data Studio holds a cached copy and reloads it on its own cycle, every 12 hours unless you change it. Use **Refresh data** from the report's menu when you need the newest run on screen immediately.
+Choose a refresh rhythm: as frequently as every 15 minutes, or hourly, daily, weekly, or monthly. Each run can replace the previous data, which is right for nearly every dashboard because it shows the current state of the books, or append to it, which builds a log over time, such as a monthly snapshot of Aged Receivables By Contact. Keep in mind that Google Data Studio holds a cached copy and reloads it on its own cycle, every 12 hours unless you change it. Use **Refresh data** from the report's menu when you need the newest run on screen immediately.
 
 ### Bonus: or just ask the AI Agent to build it for you
 
 You can also hand the setup to the Coupler.io AI Agent, which sits in the right sidebar of the Coupler.io app. Describe the dashboard you are after:
 
-> *"Create flows from Xero to Data Studio: authorised and paid invoices split by line item, changed in the last 12 months, and the Xero Reports Profit And Loss for this year in date-by-row format by month. I am building a revenue and margin dashboard for our monthly board meeting."*
+> *"Create flows from Xero to Google Data Studio: authorised and paid invoices split by line item, changed in the last 12 months, and the Xero Reports Profit And Loss for this year in date-by-row format by month. I am building a revenue and margin dashboard for our monthly board meeting."*
 
 The Agent picks the sources, data entity, report, filters, and structure. These parts still need you:
 
 1. **Connect Xero** — authorizing access to Xero stays in your hands.
 2. **Pick the organisation** — choose the Xero tenant for each flow.
-3. **Authorize the Data Studio connector** — using the Google account you sign in to Coupler.io with.
+3. **Authorize the Google Data Studio connector** — using the Google account you sign in to Coupler.io with.
 4. **Say where the data goes** — link an existing report by URL, or let Coupler.io create a new data source.
 
-Then switch to Data Studio and design the charts and controls your board will look at.
+Then switch to Google Data Studio and design the charts and controls your board will look at.
 
-## What data can you export from Xero to Data Studio with Coupler.io?
+## What data can you export from Xero to Google Data Studio with Coupler.io?
 
-Xero covers 66 options across two Coupler.io sources: 57 data entities in the Xero source and 9 reports in Xero Reports. Because a flow carries a single entity or report, finance dashboards tend to draw on a handful of flows. Coupler.io's **Join** attaches contacts or projects to the transactions, and **Append** stacks organisations together, before anything reaches Data Studio; blending separate data sources inside the Data Studio report remains an option if you prefer it.
+Xero covers 66 options across two Coupler.io sources: 57 data entities in the Xero source and 9 reports in Xero Reports. Because a flow carries a single entity or report, finance dashboards tend to draw on a handful of flows. Coupler.io's **Join** attaches contacts or projects to the transactions, and **Append** stacks organisations together, before anything reaches Google Data Studio; blending separate data sources inside the Google Data Studio report remains an option if you prefer it.
 
 Accounting entities:
 
@@ -186,17 +186,17 @@ Projects entities:
 - **Profit And Loss** — income and expenses for the period, optionally split by tracking category or compared across months.
 - **Trial Balance** — debit and credit balances for every account on a date.
 
-## Why export Xero to Data Studio — real life cases
+## Why export Xero to Google Data Studio — real life cases
 
-These are the Data Studio reports finance teams and accountants set up first once Xero refreshes on its own.
+These are the Google Data Studio reports finance teams and accountants set up first once Xero refreshes on its own.
 
 - **Monthly Profit And Loss dashboard**
 
-  Load Profit And Loss from Xero Reports in **Date-by-row format**, with **Period** set to Month and eleven periods to compare, and Data Studio gets a full year of monthly income, cost of sales, and expenses as a time series. Scorecards show gross and net profit for the selected month, and a date range control handles quarter or year views. The board pack chart builds itself.
+  Load Profit And Loss from Xero Reports in **Date-by-row format**, with **Period** set to Month and eleven periods to compare, and Google Data Studio gets a full year of monthly income, cost of sales, and expenses as a time series. Scorecards show gross and net profit for the selected month, and a date range control handles quarter or year views. The board pack chart builds itself.
 
 - **Receivables and collections page**
 
-  Invoices filtered by **Statuses** to Authorised give every open invoice with Contact, Due Date, and Amount Due. Data Studio turns that into an aging bar chart, built with a calculated bucket on days past due, plus a table of the largest overdue invoices. A scheduled email of the page every Monday gives the credit controller the week's call list.
+  Invoices filtered by **Statuses** to Authorised give every open invoice with Contact, Due Date, and Amount Due. Google Data Studio turns that into an aging bar chart, built with a calculated bucket on days past due, plus a table of the largest overdue invoices. A scheduled email of the page every Monday gives the credit controller the week's call list.
 
 - **Cash flow and bank balance tracker**
 
@@ -204,41 +204,41 @@ These are the Data Studio reports finance teams and accountants set up first onc
 
 - **Budget vs actual review**
 
-  Pull Budget Summary and Profit And Loss for the same months, and use Coupler.io's Join to line them up by account and period. Data Studio shows actual against budget with a variance column and red highlights where spending runs ahead. Department heads check it themselves instead of asking finance for an update.
+  Pull Budget Summary and Profit And Loss for the same months, and use Coupler.io's Join to line them up by account and period. Google Data Studio shows actual against budget with a variance column and red highlights where spending runs ahead. Department heads check it themselves instead of asking finance for an update.
 
 - **Client dashboards for accounting practices**
 
-  An accounting practice can create one flow per client organisation, then make a template report in Data Studio and copy it for each client with that client's data source. Each client gets a shared link to their own Profit And Loss, Balance Sheet, and aged receivables, refreshed daily. Monthly management reports stop being a manual job for the team.
+  An accounting practice can create one flow per client organisation, then make a template report in Google Data Studio and copy it for each client with that client's data source. Each client gets a shared link to their own Profit And Loss, Balance Sheet, and aged receivables, refreshed daily. Monthly management reports stop being a manual job for the team.
 
 - **Group view across several organisations**
 
-  Coupler.io's Append combines Invoices or Profit And Loss from every Xero tenant into one dataset with an organisation column. In Data Studio, a filter control switches between entities and a stacked chart shows the group total. Owners of several companies see them side by side without logging in to each one.
+  Coupler.io's Append combines Invoices or Profit And Loss from every Xero tenant into one dataset with an organisation column. In Google Data Studio, a filter control switches between entities and a stacked chart shows the group total. Owners of several companies see them side by side without logging in to each one.
 
 - **Payroll cost by month and team**
 
-  Pay runs and Timesheets with timesheet lines show wage totals and hours per period. Joined with Tracking categories in Coupler.io, Data Studio charts labor cost by department and month next to revenue. It makes hiring decisions easier to discuss with numbers instead of estimates.
+  Pay runs and Timesheets with timesheet lines show wage totals and hours per period. Joined with Tracking categories in Coupler.io, Google Data Studio charts labor cost by department and month next to revenue. It makes hiring decisions easier to discuss with numbers instead of estimates.
 
 - **Project profitability for service businesses**
 
-  Time by projects, Tasks by projects, and Projects give hours logged, task rates, and project estimates. Data Studio shows estimated versus actual hours per project and the share of time already invoiced. Project managers see overruns while there is still time to talk to the client.
+  Time by projects, Tasks by projects, and Projects give hours logged, task rates, and project estimates. Google Data Studio shows estimated versus actual hours per project and the share of time already invoiced. Project managers see overruns while there is still time to talk to the client.
 
-## Other Data Studio integrations
+## Other Google Data Studio integrations
 
-Every other source you can land in Data Studio with the same no-code setup:
+Every other source you can land in Google Data Studio with the same no-code setup:
 
-- [Connect Facebook Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-looker-studio.md)
-- [Connect Facebook Page Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-looker-studio.md)
-- [Connect Google Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-looker-studio.md)
-- [Connect Google Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-looker-studio.md)
-- [Connect Google Search Console to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-looker-studio.md)
-- [Connect Instagram Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-looker-studio.md)
-- [Connect Instagram Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-looker-studio.md)
-- [Connect LinkedIn Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-looker-studio.md)
-- [Connect LinkedIn Public Data to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-looker-studio.md)
-- [Connect Microsoft Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-looker-studio.md)
-- [Connect QuickBooks to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-looker-studio.md)
-- [Connect Shopify to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-looker-studio.md)
-- [Connect TikTok Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-looker-studio.md)
-- [Connect TikTok Organic to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-looker-studio.md)
-- [Connect WooCommerce to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-looker-studio.md)
-- [Connect YouTube Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-looker-studio.md)
+- [Connect Facebook Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-google-data-studio.md)
+- [Connect Facebook Page Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-google-data-studio.md)
+- [Connect Google Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-google-data-studio.md)
+- [Connect Google Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-google-data-studio.md)
+- [Connect Google Search Console to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-google-data-studio.md)
+- [Connect Instagram Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-google-data-studio.md)
+- [Connect Instagram Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-google-data-studio.md)
+- [Connect LinkedIn Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-google-data-studio.md)
+- [Connect LinkedIn Public Data to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-google-data-studio.md)
+- [Connect Microsoft Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-google-data-studio.md)
+- [Connect QuickBooks to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-google-data-studio.md)
+- [Connect Shopify to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-google-data-studio.md)
+- [Connect TikTok Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-google-data-studio.md)
+- [Connect TikTok Organic to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-google-data-studio.md)
+- [Connect WooCommerce to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-google-data-studio.md)
+- [Connect YouTube Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-google-data-studio.md)

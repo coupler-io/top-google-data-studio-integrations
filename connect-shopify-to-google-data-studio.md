@@ -1,20 +1,20 @@
 ---
-title: Connect Shopify to Data Studio with Coupler.io
-slug: connect-shopify-to-looker-studio
-canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-looker-studio.md
+title: Connect Shopify to Google Data Studio with Coupler.io
+slug: connect-shopify-to-google-data-studio
+canonical: https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-shopify-to-google-data-studio.md
 source: Shopify
-destination: Data Studio
-meta_title: Connect Shopify to Data Studio with Coupler.io
-meta_description: Load Shopify orders, line items, customers, products, inventory, refunds, and fulfillments into Data Studio on a schedule and see your whole store at once.
+destination: Google Data Studio
+meta_title: Connect Shopify to Google Data Studio with Coupler.io
+meta_description: Load Shopify orders, line items, customers, products, inventory, refunds, and fulfillments into Google Data Studio on a schedule and see your whole store at once.
 ---
 
-![Shopify](https://static.coupler.io/importers/shopify.svg) → ![Data Studio](https://static.coupler.io/importers/data_studio.svg)
+![Shopify](https://static.coupler.io/importers/shopify.svg) → ![Google Data Studio](https://static.coupler.io/importers/data_studio.svg)
 
-# Connect Shopify to Data Studio with Coupler.io
+# Connect Shopify to Google Data Studio (Looker Studio) with Coupler.io
 
-Shopify's built-in analytics answer the questions Shopify chose to ask, and anything beyond them means exporting orders to CSV and rebuilding the math in a spreadsheet. There is no official Shopify connector in Data Studio (formerly Looker Studio) either, so store owners end up pasting files into Google Sheets every Monday. Coupler.io connects the two directly: orders, line items, refunds, inventory, and customers flow into Data Studio on a schedule, ready to chart, and you can start from pre-built dataset templates instead of a blank page.
+Shopify's built-in analytics answer the questions Shopify chose to ask, and anything beyond them means exporting orders to CSV and rebuilding the math in a spreadsheet. There is no official Shopify connector in Google Data Studio either, so store owners end up pasting files into Google Sheets every Monday. Coupler.io connects the two directly: orders, line items, refunds, inventory, and customers flow into Google Data Studio on a schedule, ready to chart, and you can start from pre-built dataset templates instead of a blank page.
 
-## How to export Shopify data to Data Studio
+## How to export Shopify data to Google Data Studio
 
 The setup covers orders and every way to break them down (line items, shipping lines, transactions, refunds, fulfillments, activities), plus customers, products, variants, and inventory. Connect your store once and work through these screens.
 
@@ -51,36 +51,36 @@ Dates are read in your browser's time zone, so match them to the store's reporti
 - **Aggregate** — roll line items up to daily revenue per product, or orders up to weekly totals per country.
 - **Custom SQL** — write any query against the dataset and Coupler.io loads the result.
 
-### Step 6. Data Studio destination
+### Step 6. Google Data Studio destination
 
-Choose Data Studio as the destination and Coupler.io sets up a data source via its own Data Studio connector. You approve access once for Data Studio and Coupler.io, and both need to use the **same Google account**; a mismatch here is the most common reason a first setup stalls.
+Choose Google Data Studio as the destination and Coupler.io sets up a data source via its own Google Data Studio connector. You approve access once for Google Data Studio and Coupler.io, and both need to use the **same Google account**; a mismatch here is the most common reason a first setup stalls.
 
-- **Report / data source URL** — optional. Already built a Shopify report? Paste its Data Studio link (something like `https://datastudio.google.com/reporting/...`) and the flow attaches to that report or data source and opens it from Coupler.io. Skip it to start with a brand-new data source.
+- **Report / data source URL** — optional. Already built a Shopify report? Paste its Google Data Studio link (something like `https://datastudio.google.com/reporting/...`) and the flow attaches to that report or data source and opens it from Coupler.io. Skip it to start with a brand-new data source.
 
 You don't define fields: Coupler.io reads types from the Shopify data, so *Order created at* is a proper date for the date range control and amounts are numbers you can sum. Let the flow finish one successful run first; after that you can build the report and the schedule becomes available. Orders and inventory can come from separate flows and sit in the same report as two data sources.
 
 ### Step 7. Schedule
 
-Choose a cadence: every 15 minutes during a flash sale, hourly or daily for the regular sales dashboard, weekly or monthly for a board pack. **Replace** gives each run a fresh copy of the selected window, which suits most store dashboards; **append** adds rows on top, useful for snapshots like daily inventory levels. Data Studio keeps its own cache, refreshed every 12 hours by default, so hit **Refresh data** in the report menu when you need what just synced.
+Choose a cadence: every 15 minutes during a flash sale, hourly or daily for the regular sales dashboard, weekly or monthly for a board pack. **Replace** gives each run a fresh copy of the selected window, which suits most store dashboards; **append** adds rows on top, useful for snapshots like daily inventory levels. Google Data Studio keeps its own cache, refreshed every 12 hours by default, so hit **Refresh data** in the report menu when you need what just synced.
 
 ### Bonus: or just ask the AI Agent to build it for you
 
 Prefer typing a sentence to clicking through filters? The AI Agent panel on the right side of Coupler.io takes a plain request:
 
-> *"Bring Shopify orders with line items from the start of this year into Data Studio — SKU, product title, quantity, discounts, taxes, and totals — refreshed every morning, so I can build a product sales dashboard."*
+> *"Bring Shopify orders with line items from the start of this year into Google Data Studio — SKU, product title, quantity, discounts, taxes, and totals — refreshed every morning, so I can build a product sales dashboard."*
 
-The Agent selects the entity, columns, and date filters and lines up the Data Studio destination. You take care of:
+The Agent selects the entity, columns, and date filters and lines up the Google Data Studio destination. You take care of:
 
 1. **Connect Shopify** — store authorization stays in your hands.
 2. **Choose the store** — confirm which shop the data comes from.
-3. **Authorize the Data Studio connector** — using your Google account, the same one Coupler.io uses.
+3. **Authorize the Google Data Studio connector** — using your Google account, the same one Coupler.io uses.
 4. **Decide where the data lands** — paste an existing report or data source URL, or let a new data source be created.
 
-When the run finishes, open Data Studio and build the charts.
+When the run finishes, open Google Data Studio and build the charts.
 
-## What data can you export from Shopify to Data Studio with Coupler.io?
+## What data can you export from Shopify to Google Data Studio with Coupler.io?
 
-You can export 12 data entities, one per flow. To see two of them together, such as orders and inventory, use Coupler.io's **Join** or **Append** so Data Studio receives a single prepared data source; separate data sources blended inside the report work as a fallback.
+You can export 12 data entities, one per flow. To see two of them together, such as orders and inventory, use Coupler.io's **Join** or **Append** so Google Data Studio receives a single prepared data source; separate data sources blended inside the report work as a fallback.
 
 - **Orders** — one row per order with status, financial and fulfillment state, discount codes, payment gateways, and totals. The source for revenue scorecards and order trend lines.
 - **Customers** — customer records with contact details, marketing consent, and amount spent, for segmenting buyers and tracking lifetime spend.
@@ -119,13 +119,13 @@ Coupler.io also offers dataset templates for Shopify: pre-built reports you pick
 - **Shopify and GA4 weekly performance** — uses Shopify and Google Analytics 4: the same site-to-sale funnel at weekly grain.
 - **Shopify and GA4 daily performance** — uses Shopify and Google Analytics 4: the funnel day by day, for watching a campaign or sale as it runs.
 
-## Why export Shopify to Data Studio — real life cases
+## Why export Shopify to Google Data Studio — real life cases
 
-These are the store reports teams actually open in Data Studio once Shopify data shows up on its own.
+These are the store reports teams actually open in Google Data Studio once Shopify data shows up on its own.
 
 - **Morning sales board for the founder**
 
-  A single Data Studio page with scorecards for total sales, orders, and average order value, a daily trend line, and a date range control set to *this month*. Built on Orders with *Financial status* and *Order created at*, it replaces the habit of refreshing the Shopify admin on the phone before breakfast.
+  A single Google Data Studio page with scorecards for total sales, orders, and average order value, a daily trend line, and a date range control set to *this month*. Built on Orders with *Financial status* and *Order created at*, it replaces the habit of refreshing the Shopify admin on the phone before breakfast.
 
 - **Product and variant leaderboard**
 
@@ -133,15 +133,15 @@ These are the store reports teams actually open in Data Studio once Shopify data
 
 - **Stockout early warning**
 
-  The *Shopify inventory daily stockout forecast* dataset template feeds a table with conditional formatting on days of stock remaining. Anything under two weeks turns red, and the buyer gets the report as a scheduled email from Data Studio every Monday before the supplier call.
+  The *Shopify inventory daily stockout forecast* dataset template feeds a table with conditional formatting on days of stock remaining. Anything under two weeks turns red, and the buyer gets the report as a scheduled email from Google Data Studio every Monday before the supplier call.
 
 - **Marketing attribution without a third-party tool**
 
-  Orders carry *First visit UTM source*, *Last visit UTM campaign*, and *Days to conversion*. A Data Studio bar chart of sales by UTM source, with a filter for first versus last visit, shows the marketing team which campaigns actually closed orders, not just which ones got clicks.
+  Orders carry *First visit UTM source*, *Last visit UTM campaign*, and *Days to conversion*. A Google Data Studio bar chart of sales by UTM source, with a filter for first versus last visit, shows the marketing team which campaigns actually closed orders, not just which ones got clicks.
 
 - **Returns and refunds review**
 
-  Orders with refunded items lists *Refunded quantity* and *Restock type* by product. A monthly Data Studio report ranks products by return rate, and customer service and product teams use it to decide whether a sizing chart or a supplier needs fixing.
+  Orders with refunded items lists *Refunded quantity* and *Restock type* by product. A monthly Google Data Studio report ranks products by return rate, and customer service and product teams use it to decide whether a sizing chart or a supplier needs fixing.
 
 - **Fulfillment speed for operations**
 
@@ -149,29 +149,29 @@ These are the store reports teams actually open in Data Studio once Shopify data
 
 - **Profit view for finance**
 
-  The *Shopify Orders with COGS* dataset template gives gross profit and gross margin by date. Finance builds a Data Studio report with monthly margin, discount impact, and taxes, then shares it as a view-only link with the accountant instead of exporting a spreadsheet each month-end.
+  The *Shopify Orders with COGS* dataset template gives gross profit and gross margin by date. Finance builds a Google Data Studio report with monthly margin, discount impact, and taxes, then shares it as a view-only link with the accountant instead of exporting a spreadsheet each month-end.
 
 - **Site traffic to sale funnel**
 
-  With *Shopify and GA4 weekly performance*, sessions, cart additions, checkout reached, and completed purchases from GA4 sit beside Shopify orders. A funnel chart in Data Studio shows where shoppers drop off, and the conversion rate scorecard tells the team if last week's site change helped.
+  With *Shopify and GA4 weekly performance*, sessions, cart additions, checkout reached, and completed purchases from GA4 sit beside Shopify orders. A funnel chart in Google Data Studio shows where shoppers drop off, and the conversion rate scorecard tells the team if last week's site change helped.
 
-## Other Data Studio integrations
+## Other Google Data Studio integrations
 
-Every other source you can land in Data Studio with the same no-code setup:
+Every other source you can land in Google Data Studio with the same no-code setup:
 
-- [Connect Facebook Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-looker-studio.md)
-- [Connect Facebook Page Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-looker-studio.md)
-- [Connect Google Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-looker-studio.md)
-- [Connect Google Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-looker-studio.md)
-- [Connect Google Search Console to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-looker-studio.md)
-- [Connect Instagram Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-looker-studio.md)
-- [Connect Instagram Insights to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-looker-studio.md)
-- [Connect LinkedIn Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-looker-studio.md)
-- [Connect LinkedIn Public Data to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-looker-studio.md)
-- [Connect Microsoft Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-looker-studio.md)
-- [Connect QuickBooks to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-looker-studio.md)
-- [Connect TikTok Ads to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-looker-studio.md)
-- [Connect TikTok Organic to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-looker-studio.md)
-- [Connect WooCommerce to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-looker-studio.md)
-- [Connect Xero to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-looker-studio.md)
-- [Connect YouTube Analytics to Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-looker-studio.md)
+- [Connect Facebook Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-ads-to-google-data-studio.md)
+- [Connect Facebook Page Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-facebook-page-insights-to-google-data-studio.md)
+- [Connect Google Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-ads-to-google-data-studio.md)
+- [Connect Google Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-analytics-to-google-data-studio.md)
+- [Connect Google Search Console to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-google-search-console-to-google-data-studio.md)
+- [Connect Instagram Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-ads-to-google-data-studio.md)
+- [Connect Instagram Insights to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-instagram-insights-to-google-data-studio.md)
+- [Connect LinkedIn Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-ads-to-google-data-studio.md)
+- [Connect LinkedIn Public Data to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-linkedin-public-data-to-google-data-studio.md)
+- [Connect Microsoft Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-microsoft-ads-to-google-data-studio.md)
+- [Connect QuickBooks to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-quickbooks-to-google-data-studio.md)
+- [Connect TikTok Ads to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-ads-to-google-data-studio.md)
+- [Connect TikTok Organic to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-tiktok-organic-to-google-data-studio.md)
+- [Connect WooCommerce to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-woocommerce-to-google-data-studio.md)
+- [Connect Xero to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-xero-to-google-data-studio.md)
+- [Connect YouTube Analytics to Google Data Studio](https://github.com/coupler-io/top-looker-studio-integrations/blob/main/connect-youtube-analytics-to-google-data-studio.md)
